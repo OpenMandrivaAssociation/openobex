@@ -4,16 +4,15 @@
 Summary: 	Library for using OBEX
 Name: 		openobex
 Version: 	1.3
-Release: 	%mkrel 2
+Release: 	%mkrel 3
 License: 	LGPL
 URL:		http://openobex.sourceforge.net/
 Group: 		System/Libraries
 Source: 	http://prdownloads.sourceforge.net/openobex/openobex-%{version}.tar.bz2
-BuildRoot:	%{_tmppath}/%{name}-root
-
 BuildRequires: 	bluez-devel
 BuildRequires: 	glib-devel
 BuildRequires:	libusb-devel
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 Open OBEX shared c-library
@@ -36,6 +35,7 @@ Group: Development/C
 Provides: lib%{name}-devel = %version-%release
 Provides: %{name}-devel  = %version-%release
 Requires: %{libname} = %{version}
+Requires:   bluez-devel
 Conflicts: %{_lib}%{name}1.3-devel
 Conflicts: %{_lib}%{name}1.2-devel
 Conflicts: %{_lib}%{name}1.1-devel
