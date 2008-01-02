@@ -12,6 +12,7 @@ Source: 	http://prdownloads.sourceforge.net/openobex/openobex-%{version}.tar.bz2
 BuildRequires: 	bluez-devel
 BuildRequires: 	glib-devel
 BuildRequires:	libusb-devel
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 Open OBEX shared c-library
