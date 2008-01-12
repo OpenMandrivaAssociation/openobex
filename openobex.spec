@@ -4,11 +4,12 @@
 Summary: 	Library for using OBEX
 Name: 		openobex
 Version: 	1.3
-Release: 	%mkrel 3
+Release: 	%mkrel 4
 License: 	LGPL
 URL:		http://openobex.sourceforge.net/
 Group: 		System/Libraries
 Source: 	http://prdownloads.sourceforge.net/openobex/openobex-%{version}.tar.bz2
+Patch0:		openobex-1.3-ipv6.patch
 BuildRequires: 	bluez-devel
 BuildRequires: 	glib-devel
 BuildRequires:	libusb-devel
@@ -63,6 +64,7 @@ Ircp is used to "beam" files or whole directories to/from Linux, Windows.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %configure \
