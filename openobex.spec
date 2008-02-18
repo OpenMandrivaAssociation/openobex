@@ -54,7 +54,7 @@ not meant to be more than test-programs to look at if you want to see
 how use the library itself.
 
 %package ircp
-Summary: Ircp is used to "beam" files or whole directories
+Summary: Used to "beam" files or whole directories
 Group: Communications
 Obsoletes: ircp
 Provides: ircp
