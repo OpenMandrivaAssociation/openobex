@@ -1,19 +1,20 @@
-%define major 	1
+%define major 1
 %define libname %mklibname openobex %{major}
 
 Summary: 	Library for using OBEX
 Name: 		openobex
 Version: 	1.3
-Release: 	%mkrel 6
+Release: 	%mkrel 7
 License: 	LGPL
-URL:		http://openobex.sourceforge.net/
 Group: 		System/Libraries
+URL:		http://openobex.sourceforge.net/
 Source: 	http://prdownloads.sourceforge.net/openobex/openobex-%{version}.tar.bz2
 Patch0:		openobex-1.3-ipv6.patch
-BuildRequires: 	bluez-devel
-BuildRequires: 	glib-devel
+Patch1:		openobex-linkage_fix.diff
+BuildRequires:	bluez-devel
+BuildRequires:	glib-devel
 BuildRequires:	libusb-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Open OBEX shared c-library
@@ -63,30 +64,36 @@ Provides: ircp
 Ircp is used to "beam" files or whole directories to/from Linux, Windows.
 
 %prep
+
 %setup -q
 %patch0 -p1
+%patch1 -p0
 
 %build
+autoreconf -fis
 %configure \
 	--enable-apps
 %make
 
 %install
 rm -rf %{buildroot}
-%makeinstall_std
-# since our old packages will look for headers in /usr/include
-ln -s openobex/obex.h $RPM_BUILD_ROOT/%_includedir/obex.h
-ln -s openobex/obex_const.h $RPM_BUILD_ROOT/%_includedir/obex_const.h
 
-%clean
-rm -rf %{buildroot}
+%makeinstall_std
+
+# since our old packages will look for headers in /usr/include
+ln -s openobex/obex.h %{buildroot}/%_includedir/obex.h
+ln -s openobex/obex_const.h %{buildroot}/%_includedir/obex_const.h
 
 %if %mdkversion < 200900
 %post -n %{libname} -p /sbin/ldconfig
 %endif
+
 %if %mdkversion < 200900
 %postun -n %{libname} -p /sbin/ldconfig
 %endif
+
+%clean
+rm -rf %{buildroot}
 
 %files -n %{libname}
 %defattr(-, root, root)
@@ -112,5 +119,3 @@ rm -rf %{buildroot}
 %files ircp
 %defattr(-, root, root)
 %{_bindir}/ircp
-
-
