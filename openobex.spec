@@ -3,12 +3,12 @@
 
 Summary: 	Library for using OBEX
 Name: 		openobex
-Version: 	1.3
-Release: 	%mkrel 7
+Version: 	1.4
+Release: 	%mkrel 1
 License: 	LGPL
 Group: 		System/Libraries
 URL:		http://openobex.sourceforge.net/
-Source: 	http://prdownloads.sourceforge.net/openobex/openobex-%{version}.tar.bz2
+Source: 	http://www.kernel.org/pub/linux/bluetooth/openobex-%{version}.tar.gz
 Patch0:		openobex-1.3-ipv6.patch
 Patch1:		openobex-linkage_fix.diff
 BuildRequires:	bluez-devel
@@ -66,8 +66,8 @@ Ircp is used to "beam" files or whole directories to/from Linux, Windows.
 %prep
 
 %setup -q
-%patch0 -p1
-%patch1 -p0
+#%patch0 -p1
+#%patch1 -p0
 
 %build
 autoreconf -fis
@@ -104,7 +104,6 @@ rm -rf %{buildroot}
 %defattr(-, root, root)
 %doc AUTHORS ChangeLog README
 %{_libdir}/pkgconfig/openobex.pc
-%{_datadir}/aclocal/openobex.m4
 %{_includedir}/*
 %{_libdir}/*a
 %{_libdir}/lib*.so
