@@ -1,9 +1,10 @@
 %define major 1
 %define libname %mklibname openobex %{major}
+%define develname %mklibname openobex -d
 
 Summary: 	Library for using OBEX
 Name: 		openobex
-Version: 	1.4
+Version: 	1.5
 Release: 	%mkrel 1
 License: 	LGPL
 Group: 		System/Libraries
@@ -31,7 +32,7 @@ Conflicts: %{_lib}%{name}1.1
 %description -n %{libname}
 Open OBEX shared c-library
 
-%package -n %{libname}-devel
+%package -n %{develname}
 Summary: Library for using OBEX
 Group: Development/C
 Provides: lib%{name}-devel = %version-%release
@@ -41,8 +42,9 @@ Requires:   bluez-devel
 Conflicts: %{_lib}%{name}1.3-devel
 Conflicts: %{_lib}%{name}1.2-devel
 Conflicts: %{_lib}%{name}1.1-devel
+Obsoletes: %{_lib}%{name}1-devel
 
-%description -n %{libname}-devel
+%description -n %{develname}
 Open OBEX shared c-library
 
 %package apps
@@ -100,7 +102,7 @@ rm -rf %{buildroot}
 %doc COPYING
 %{_libdir}/libopenobex.so.%{major}*
 
-%files -n %{libname}-devel
+%files -n %{develname}
 %defattr(-, root, root)
 %doc AUTHORS ChangeLog README
 %{_libdir}/pkgconfig/openobex.pc
