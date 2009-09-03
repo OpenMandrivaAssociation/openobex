@@ -5,7 +5,7 @@
 Summary: 	Library for using OBEX
 Name: 		openobex
 Version: 	1.5
-Release: 	%mkrel 1
+Release: 	%mkrel 2
 License: 	LGPL
 Group: 		System/Libraries
 URL:		http://openobex.sourceforge.net/
