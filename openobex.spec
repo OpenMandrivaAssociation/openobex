@@ -13,7 +13,6 @@ Source: 	http://www.kernel.org/pub/linux/bluetooth/openobex-%{version}.tar.gz
 Patch0:		openobex-1.3-ipv6.patch
 Patch1:		openobex-linkage_fix.diff
 BuildRequires:	bluez-devel
-BuildRequires:	glib-devel
 BuildRequires:	libusb-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
