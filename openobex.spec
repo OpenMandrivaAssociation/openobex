@@ -5,7 +5,7 @@
 Summary: 	Library for using OBEX
 Name: 		openobex
 Version: 	1.5
-Release: 	%mkrel 6
+Release: 	%mkrel 8
 License: 	LGPL
 Group: 		System/Libraries
 URL:		http://openobex.sourceforge.net/
@@ -119,3 +119,115 @@ rm -rf %{buildroot}
 %files ircp
 %defattr(-, root, root)
 %{_bindir}/ircp
+
+
+%changelog
+* Wed May 04 2011 Oden Eriksson <oeriksson@mandriva.com> 1.5-6mdv2011.0
++ Revision: 666958
+- mass rebuild
+
+* Fri Dec 03 2010 Oden Eriksson <oeriksson@mandriva.com> 1.5-5mdv2011.0
++ Revision: 607021
+- rebuild
+
+* Wed Mar 17 2010 Oden Eriksson <oeriksson@mandriva.com> 1.5-4mdv2010.1
++ Revision: 523541
+- rebuilt for 2010.1
+
+* Mon Sep 14 2009 Götz Waschk <waschk@mandriva.org> 1.5-3mdv2010.0
++ Revision: 439799
+- rebuild for new libusb
+
+* Tue Sep 08 2009 Christophe Fergeau <cfergeau@mandriva.com> 1.5-2mdv2010.0
++ Revision: 433544
+- remove glib-devel BuildRequires, glib support is unconditionally disabled in the upstream tarball
+- rebuild
+
+* Wed Feb 18 2009 Emmanuel Andry <eandry@mandriva.org> 1.5-1mdv2009.1
++ Revision: 342630
+- New version 1.5
+- use devel library policy
+
+* Sun Nov 09 2008 Nicolas Lécureuil <nlecureuil@mandriva.com> 1.4-1mdv2009.1
++ Revision: 301340
+- Update to openObex 1.4
+- "After two years of development finally we have a new version of OpenOBEX
+  This version comes with better support for Windows based system and fixes
+  all pending bugs. Please test it properly to ensure that nothing broke."
+
+* Wed Jul 09 2008 Oden Eriksson <oeriksson@mandriva.com> 1.3-7mdv2009.0
++ Revision: 232944
+- fix linkage (P1)
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - rebuild
+
+  + Pixel <pixel@mandriva.com>
+    - do not call ldconfig in %%post/%%postun, it is now handled by filetriggers
+
+* Mon Feb 18 2008 Thierry Vignaud <tv@mandriva.org> 1.3-5mdv2008.1
++ Revision: 171010
+- rebuild
+- fix "foobar is blabla" summary (=> "blabla") so that it looks nice in rpmdrake
+
+* Sat Jan 12 2008 Emmanuel Andry <eandry@mandriva.org> 1.3-4mdv2008.1
++ Revision: 149809
+- add patch from fedora to add ipv6 support
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill re-definition of %%buildroot on Pixel's request
+
+* Fri Apr 27 2007 Guillaume Rousse <guillomovitch@mandriva.org> 1.3-3mdv2008.0
++ Revision: 18729
+- force explicit dependency on bluez-devel in openobex-devel
+
+
+* Fri Jan 19 2007 Frederic Crozat <fcrozat@mandriva.com> 1.3-2mdv2007.0
++ Revision: 110576
+-Fix libification
+-Add conflicts to upgrade from previous releases
+
+  + Buchan Milne <bgmilne@mandriva.org>
+    - buildrequire libusb-devel
+
+* Tue Oct 31 2006 Stefan van der Eijk <stefan@mandriva.org> 1.3-1mdv2007.1
++ Revision: 74231
+- 1.3
+- Import openobex
+
+* Sun Sep 03 2006 Stefan van der Eijk <stefan@mandriva.org> 1.2-3
+- rebuild for libbluetooth.so.2
+
+* Sat Jun 17 2006 Austin Acton <austin@mandriva.org> 1.2-1mdv2007.0
+- Rebuild
+
+* Mon Mar 27 2006 Stefan van der Eijk <stefan@eijk.nu> 1.2-1mdk
+- 1.2
+- change incorrect major
+- add apps & ircp subpackages
+
+* Fri Feb 10 2006 Götz Waschk <waschk@mandriva.org> 1.1-2mdk
+- drop obsoletes
+- fix provides
+
+* Sat Feb 04 2006 Stefan van der Eijk <stefan@eijk.nu> 1.1-1mdk
+- 1.1
+
+* Sat Dec 24 2005 Stefan van der Eijk <stefan@eijk.nu> 1.0.1-5mdk
+- %%mkrel
+
+* Tue Oct 19 2004 Gwenole Beauchesne <gbeauchesne@mandrakesoft.com> 1.0.1-4mdk
+- fix deps
+
+* Sat May 01 2004 Austin Acton <austin@mandrake.org> 1.0.1-3mdk
+- obsolete libname1 (Arnaud de Lorbeau)
+
+* Tue Apr 06 2004 Austin Acton <austin@mandrake.org> 1.0.1-2mdk
+- make sure headers go in their own directory (makeinstall_std)
+- fancify spec
+- move config utility to devel package
+- fix major versioning
+
