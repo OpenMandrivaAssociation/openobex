@@ -1,20 +1,20 @@
-%define major 1
+%define major 2
 %define libname %mklibname openobex %{major}
 %define develname %mklibname openobex -d
 
 Summary: 	Library for using OBEX
 Name: 		openobex
-Version: 	1.5
-Release: 	%mkrel 8
+Version: 	1.6
+Release: 	1
 License: 	LGPL
 Group: 		System/Libraries
 URL:		http://openobex.sourceforge.net/
-Source: 	http://www.kernel.org/pub/linux/bluetooth/openobex-%{version}.tar.gz
+Source0: 	http://netcologne.dl.sourceforge.net/project/openobex/openobex/%version/openobex-%version-Source.tar.gz
 Patch0:		openobex-1.3-ipv6.patch
 Patch1:		openobex-linkage_fix.diff
+Patch2:		openobex-automake-1.13.patch
 BuildRequires:	bluez-devel
 BuildRequires:	libusb-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Open OBEX shared c-library
@@ -66,9 +66,10 @@ Ircp is used to "beam" files or whole directories to/from Linux, Windows.
 
 %prep
 
-%setup -q
+%setup -q -n %name-%version-Source
 #%patch0 -p1
 #%patch1 -p0
+%patch2 -p1 -b .am113~
 
 %build
 autoreconf -fis
@@ -111,14 +112,19 @@ rm -rf %{buildroot}
 
 %files apps
 %defattr(-, root, root)
-%{_bindir}/irobex_palm3
-%{_bindir}/irxfer
-%{_bindir}/obex_tcp
-%{_bindir}/obex_test
+%_bindir/obex_find
+%_bindir/irobex_palm3
+%_bindir/irxfer
+%_bindir/obex_tcp
+%_bindir/obex_test
+%_sbindir/obex-check-device
+%_mandir/man1/*
+%exclude %_mandir/man1/ircp.1*
 
 %files ircp
 %defattr(-, root, root)
 %{_bindir}/ircp
+%_mandir/man1/ircp.1*
 
 
 %changelog
