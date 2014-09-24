@@ -107,6 +107,5 @@ rm -f %{buildroot}%{_mandir}/man1/obex_test.1*
 %doc COPYING AUTHORS ChangeLog README
 %{_includedir}/*
 %{_libdir}/cmake/OpenObex-%{version}
-%{_datadir}/doc/openobex/html/
 %{_libdir}/lib*.so
 %{_libdir}/pkgconfig/openobex.pc
