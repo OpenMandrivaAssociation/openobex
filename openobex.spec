@@ -13,6 +13,7 @@ Url:		http://openobex.sourceforge.net/
 Source0: 	http://netcologne.dl.sourceforge.net/project/openobex/openobex/%{version}/%{name}-%{version}-Source.tar.gz
 Patch0:		openobex-apps-flush.patch
 Patch1:		openobex-1.7-obex_push.patch
+Patch2:		openobex-1.7.1-addrinfo.patch
 
 BuildRequires:	docbook-style-xsl
 BuildRequires:	xmlto
