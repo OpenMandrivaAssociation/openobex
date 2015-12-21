@@ -1,6 +1,7 @@
 %define major	2
 %define libname %mklibname openobex %{major}
 %define devname %mklibname openobex -d
+%define _disable_lto 1
 
 Summary: 	Library for using OBEX
 Name: 		openobex
