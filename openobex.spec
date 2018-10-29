@@ -5,15 +5,16 @@
 
 Summary: 	Library for using OBEX
 Name: 		openobex
-Version: 	1.7.1
-Release: 	4
+Version: 	1.7.2
+Release: 	1
 License: 	LGPLv2.1
 Group: 		System/Libraries
 Url:		http://openobex.sourceforge.net/
 Source0: 	http://netcologne.dl.sourceforge.net/project/openobex/openobex/%{version}/%{name}-%{version}-Source.tar.gz
 Patch0:		openobex-apps-flush.patch
 Patch1:		openobex-1.7-obex_push.patch
-Patch2:		openobex-1.7.1-addrinfo.patch
+Patch2:		openobex-1.7-udev_rule.patch
+Patch3:		openobex-1.7-strtoul.patch
 
 BuildRequires:	docbook-style-xsl
 BuildRequires:	xmlto
