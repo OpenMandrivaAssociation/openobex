@@ -60,7 +60,7 @@ Open OBEX shared c-library
 
 %prep
 %setup -qn %{name}-%{version}-Source
-%apply_patches
+%autopatch -p1
 
 %build
 %cmake  -DCMAKE_INSTALL_PREFIX=%{_prefix} \
