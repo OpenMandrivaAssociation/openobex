@@ -9,7 +9,7 @@ Version: 	1.7.2
 Release: 	6
 License: 	LGPLv2.1
 Group: 		System/Libraries
-Url:		http://openobex.sourceforge.net/
+Url:		https://openobex.sourceforge.net/
 Source0: 	http://netcologne.dl.sourceforge.net/project/openobex/openobex/%{version}/%{name}-%{version}-Source.tar.gz
 Patch0:		openobex-apps-flush.patch
 Patch1:		openobex-1.7-obex_push.patch
